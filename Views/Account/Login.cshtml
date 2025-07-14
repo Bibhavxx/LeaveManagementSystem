@@ -1,0 +1,120 @@
+﻿@model LeavePortal.Models.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login - Leave Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 12px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+            width: 360px;
+            text-align: center;
+        }
+
+            .login-box h2 {
+                margin-bottom: 30px;
+                color: #333;
+                font-weight: 600;
+                font-size: 28px;
+                letter-spacing: 1.2px;
+            }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1.8px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+            input[type="text"]:focus,
+            input[type="password"]:focus,
+            select:focus {
+                border-color: #667eea;
+                outline: none;
+            }
+
+        button {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background: #5a67d8;
+            }
+
+        .error-message {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Welcome Back</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error-message">@ViewBag.Error</div>
+        }
+
+        <form method="post">
+            <label for="Username">Username</label>
+            <input asp-for="Username" id="Username" placeholder="Enter username" required />
+
+            <label for="PasswordHash">Password</label>
+            <input asp-for="PasswordHash" id="PasswordHash" type="password" placeholder="Enter password" required />
+
+            <label for="Role">Select Role</label>
+            <select asp-for="Role" id="Role" required>
+                <option value="">-- Select Role --</option>
+                <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

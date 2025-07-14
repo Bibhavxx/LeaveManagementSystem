@@ -1,0 +1,128 @@
+﻿@model List<LeavePortal.Models.LeaveRequest>
+@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #eef1f7;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        a.button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+            a.button:hover {
+                background-color: #c82333;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #764ba2;
+            color: white;
+        }
+
+        a.action-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .approve {
+            background-color: #28a745;
+        }
+
+        .reject {
+            background-color: #dc3545;
+        }
+
+        .approve:hover {
+            background-color: #218838;
+        }
+
+        .reject:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>All Leave Requests</h2>
+            <a class="button" href="/Account/Logout">Logout</a>
+        </div>
+
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Reason</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserId</td>
+                    <td>@item.Reason</td>
+                    <td>@item.FromDate.ToShortDateString()</td>
+                    <td>@item.ToDate.ToShortDateString()</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a asp-action="Approve" asp-route-id="@item.Id" class="action-btn approve">Approve</a>
+                        <a asp-action="Reject" asp-route-id="@item.Id" class="action-btn reject">Reject</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
