@@ -1,18 +1,18 @@
-# 🏢 Leave Portal System (ASP.NET Core MVC + SQL Server)
+# Leave Portal System (ASP.NET Core MVC + SQL Server)
 
 A simple and clean **Leave Management System** built using **ASP.NET Core MVC** and **SQL Server**.  
 It allows employees to apply for leaves and admins to approve or reject them via dashboards.
 
 ---
 
-## 📌 Features
+## Features
 
-### 👨‍💼 Admin:
+## Admin:
 - View all leave requests
 - Approve or reject any request
 - Secure login
 
-### 👨‍💻 Employee:
+### Employee:
 - Login with credentials
 - Apply for leave (reason, from/to dates)
 - View leave status (pending, approved, rejected)
@@ -20,7 +20,7 @@ It allows employees to apply for leaves and admins to approve or reject them via
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - ASP.NET Core MVC (.NET 6+)
 - Entity Framework Core
@@ -30,7 +30,7 @@ It allows employees to apply for leaves and admins to approve or reject them via
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the repository
 
