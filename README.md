@@ -30,7 +30,7 @@ It allows employees to apply for leaves and admins to approve or reject them via
 
 ---
 
-## Setup Instructions
+## Setup Instructions ( Easily Understand For User Who Take Myb Code For Creating His/Her Own Project )
 
 ### 1. Clone the repository
 
